@@ -1,0 +1,7 @@
+*.pdf
+/.idea
+*/demos
+*.DS_Store
+/Books
+*.zip
+/HTML_CSS

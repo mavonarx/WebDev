@@ -1,1 +1,0 @@
-./../8/praktikum/code/script.js

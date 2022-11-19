@@ -1,5 +1,6 @@
 div {
     box-sizing: border-box;
+    outline-style: none;
 }
 
 .board {

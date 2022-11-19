@@ -89,6 +89,7 @@ function checkWin(){
     }
 
     //check vertical
+    count = 0
     for (let col = 0; col <COLUMNS; col++){
         for (let row = 0; row<ROWS; row++){
             if (count === 4) {
@@ -106,6 +107,7 @@ function checkWin(){
 
     //diagonal left to right
     //get all starting points
+    count = 0
     let startingPoints = []
     for (let row = 0; row <ROWS; row++){
         for (let col = 0; col<COLUMNS; col++){
@@ -136,6 +138,7 @@ function checkWin(){
 
     //diagonal right to left
     //get all starting points
+    count = 0
     startingPoints = []
     for (let row = 0; row <ROWS; row++){
         for (let col = 0; col<COLUMNS; col++){
@@ -236,6 +239,7 @@ function restartGame(){
         }
     }
     document.getElementById("displayLabel").innerText="Blue's Turn"
+    state.winner=undefined
 
 }
 

@@ -77,6 +77,7 @@ function checkWin(){
         for (let col = 0; col<COLUMNS; col++){
             if (count===4) {
                 state.winner = symbol
+                console.log("horizontal")
                 break
             }
             if (state[row][col]===symbol){
@@ -86,6 +87,7 @@ function checkWin(){
                 count = 0;
             }
         }
+        count = 0
     }
 
     //check vertical
@@ -94,6 +96,7 @@ function checkWin(){
         for (let row = 0; row<ROWS; row++){
             if (count === 4) {
                 state.winner = symbol
+                console.log("vertical")
                 break
             }
             if (state[row][col]===symbol){
@@ -103,6 +106,7 @@ function checkWin(){
                 count = 0;
             }
         }
+        count = 0
     }
 
     //diagonal left to right
@@ -122,6 +126,7 @@ function checkWin(){
         while (row<ROWS && col<COLUMNS){
             if (count===4) {
                 state.winner = symbol
+                console.log("diagonal left to right")
                 break
             }
             if (state[row][col]===symbol){
@@ -133,12 +138,12 @@ function checkWin(){
             row++
             col++
         }
+        count = 0
     }
 
 
     //diagonal right to left
     //get all starting points
-    count = 0
     startingPoints = []
     for (let row = 0; row <ROWS; row++){
         for (let col = 0; col<COLUMNS; col++){
@@ -153,9 +158,11 @@ function checkWin(){
         while (row<ROWS && col>=0){
             if (count===4) {
                 state.winner = symbol
+                console.log("diagonal right to left")
                 break
             }
             if (state[row][col]===symbol){
+                console.log(row,col)
                 count++
             }
             else {
@@ -164,8 +171,11 @@ function checkWin(){
             row++
             col--
         }
+        count = 0
     }
+    console.log("hello")
 }
+
 
 function elt (type,attrs,...children){
     let node = document.createElement(type)

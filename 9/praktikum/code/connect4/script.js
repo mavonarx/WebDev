@@ -75,16 +75,15 @@ function checkWin(){
     let symbol = state.blue===true ? 'b':'r'
     for (let row = 0; row <ROWS; row++){
         for (let col = 0; col<COLUMNS; col++){
-            if (count===4) {
-                state.winner = symbol
-                console.log("horizontal")
-                break
-            }
             if (state[row][col]===symbol){
                 count++
             }
             else {
                 count = 0;
+            }
+            if (count===4) {
+                state.winner = symbol
+                break
             }
         }
         count = 0
@@ -94,16 +93,15 @@ function checkWin(){
     count = 0
     for (let col = 0; col <COLUMNS; col++){
         for (let row = 0; row<ROWS; row++){
-            if (count === 4) {
-                state.winner = symbol
-                console.log("vertical")
-                break
-            }
             if (state[row][col]===symbol){
                 count++
             }
             else {
                 count = 0;
+            }
+            if (count === 4) {
+                state.winner = symbol
+                break
             }
         }
         count = 0
@@ -124,16 +122,15 @@ function checkWin(){
         let row = point[0]
         let col = point[1]
         while (row<ROWS && col<COLUMNS){
-            if (count===4) {
-                state.winner = symbol
-                console.log("diagonal left to right")
-                break
-            }
             if (state[row][col]===symbol){
                 count++
             }
             else {
                 count = 0;
+            }
+            if (count===4) {
+                state.winner = symbol
+                break
             }
             row++
             col++
@@ -156,24 +153,21 @@ function checkWin(){
         let row = point[0]
         let col = point[1]
         while (row<ROWS && col>=0){
-            if (count===4) {
-                state.winner = symbol
-                console.log("diagonal right to left")
-                break
-            }
             if (state[row][col]===symbol){
-                console.log(row,col)
                 count++
             }
             else {
                 count = 0;
+            }
+            if (count===4) {
+                state.winner = symbol
+                break
             }
             row++
             col--
         }
         count = 0
     }
-    console.log("hello")
 }
 
 

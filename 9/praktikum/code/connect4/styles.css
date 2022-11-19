@@ -35,6 +35,10 @@ div {
 
 button{
     background-color: #10c918;
-    margin:auto;
+    margin: 4vw 7vw;
     color: black;
+    padding: 1vw 2vw;
+    text-align: center;
+    border-radius: 8px;
+    border-color: black;
 }

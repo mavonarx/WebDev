@@ -16,7 +16,7 @@ div {
     height: 12vw;
     background-color: white;
     user-select: none;
-    /*firefox*/
+    touch-action: manipulation;
     -webkit-tap-highlight-color: transparent;
     -webkit-touch-callout: none;
     -webkit-user-select: none; /* Safari */

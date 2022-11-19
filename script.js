@@ -7,6 +7,7 @@ state.blue=true;
 state.winner = undefined
 
 function buildBoard() {
+    document.getElementById("displayLabel").innerText="Blue's Turn"
     const board = document.querySelector(".board")
     board.style.gridTemplateRows=`repeat(${ROWS},12vw)`
     board.style.gridTemplateColumns=`repeat(${COLUMNS},12vw)`

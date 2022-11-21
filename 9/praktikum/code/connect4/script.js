@@ -8,6 +8,7 @@ state.winner = undefined
 
 function buildBoard() {
     document.getElementById("displayLabel").innerText="Blue's Turn"
+    document.getElementById("displayLabel").style.color="blue"
     const board = document.querySelector(".board")
     board.style.gridTemplateRows=`repeat(${ROWS},12vw)`
     board.style.gridTemplateColumns=`repeat(${COLUMNS},12vw)`
@@ -51,6 +52,8 @@ function buildBoard() {
                     color = "Red"
                 }
                 document.getElementById("displayLabel").innerText=`${color}'s Turn`
+                // set the color of the label to the color of the next player
+                document.getElementById("displayLabel").style.color = color.toLowerCase()
 
             })
             board.appendChild(field)
@@ -243,6 +246,7 @@ function restartGame(){
         }
     }
     document.getElementById("displayLabel").innerText="Blue's Turn"
+    document.getElementById("displayLabel").style.color="blue"
     state.winner=undefined
 
 }

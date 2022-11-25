@@ -63,15 +63,15 @@ button{
 }
 @keyframes blink {
     0% {
-        background-color: #b710c9;
+        background-color: #10c918;
         opacity: 1;
     }
     50% {
-        background-color: #b710c9;
+        background-color: #046407;
         opacity: 0.5;
     }
     100% {
-        background-color: #b710c9;
+        background-color: #10c918;
         opacity: 1;
     }
 }
@@ -86,5 +86,5 @@ button:active{
 label{
     display: inline-block;
     margin-left: 2vw;
-    width: 13vw;
+    width: 18vw;
 }

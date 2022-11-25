@@ -10,7 +10,7 @@ COLUMNWIDTH = 12
 let state = {}
 state.board= Array(ROWS).fill('').map(() => Array(COLUMNS).fill(''));
 state.blue=true;
-state.winner = undefined
+state.winner = null;
 
 function buildBoard() {
     document.getElementById("displayLabel").innerText="Blue's Turn"
@@ -24,7 +24,7 @@ function buildBoard() {
             let field = elt("div", {class: "field", gridRow:row, gridColumn:col},...node)
             field.addEventListener("click", () => {
 
-                if (state.winner!==undefined){
+                if (state.winner!==null){
                     return
                 }
                 let currentCol = field.getAttribute("gridColumn")
@@ -44,7 +44,7 @@ function buildBoard() {
                 currField.appendChild(elt("div",{class:className}))
                 state.board[lowerSpot][currentCol]=className.at(0)
                 checkWin()
-                if(state.winner!==undefined){
+                if(state.winner!==null){
                     displayWinner()
                     return;
                 }
@@ -195,9 +195,13 @@ function elt (type,attrs,...children){
 }
 
 function showBoard() {
+
     if (state.blue===true){
         document.getElementById("displayLabel").innerText="Blue's Turn"
         document.getElementById("displayLabel").style.color="blue"
+    }
+    if (state.winner!=null){
+        displayWinner()
     }
     for (let row = 0; row < ROWS; row++) {
         for (let col = 0; col < COLUMNS; col++) {
@@ -235,7 +239,7 @@ function displayWinner(){
     if (state.winner==='b'){
         winner = "Blue"
     }
-    else {
+    if (state.winner==='r'){
         winner = "Red"
     }
 
@@ -261,7 +265,7 @@ function restartGame(){
     }
     document.getElementById("displayLabel").innerText="Blue's Turn"
     document.getElementById("displayLabel").style.color="blue"
-    state.winner=undefined
+    state.winner=null
 
 }
 
@@ -273,7 +277,7 @@ function loadGame(){
         .then(data => {
             state = data;
             showBoard()
-            document.getElementById("saveLoadLabel").innerText="Game Loaded"
+            document.getElementById("saveLoadLabel").innerText="Game loaded"
 
 
         })

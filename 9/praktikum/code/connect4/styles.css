@@ -33,8 +33,13 @@ div {
 }
 
 .board .field .piece {
-    width: 8vw;
-    height: 8vw;
+
+    /*width: 8vw;
+    height: 8vw;*
+
+     */
+    width: 80%;
+    height: 80%;
     border-radius: 50%;
     margin: 1vw;
 }

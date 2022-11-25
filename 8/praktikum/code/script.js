@@ -44,7 +44,6 @@ function showBoard() {
                 if (field.firstChild) {
                     field.removeChild(field.firstChild)
                 }
-                continue
             }
 
             else if (state[row][col] === 'b') {

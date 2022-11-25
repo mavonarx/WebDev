@@ -2,10 +2,13 @@
 
 const COLUMNS = 7
 const ROWS = 6
+ROWWIDTH = 12
+COLUMNWIDTH = 12
+
 
 
 let state = {}
-state.board= Array(6).fill('').map(() => Array(7).fill(''));
+state.board= Array(ROWS).fill('').map(() => Array(COLUMNS).fill(''));
 state.blue=true;
 state.winner = undefined
 
@@ -13,8 +16,8 @@ function buildBoard() {
     document.getElementById("displayLabel").innerText="Blue's Turn"
     document.getElementById("displayLabel").style.color="blue"
     const board = document.querySelector(".board")
-    board.style.gridTemplateRows=`repeat(${ROWS},12vw)`
-    board.style.gridTemplateColumns=`repeat(${COLUMNS},12vw)`
+    board.style.gridTemplateRows=`repeat(${ROWS},${ROWWIDTH}vw)`
+    board.style.gridTemplateColumns=`repeat(${COLUMNS},${COLUMNWIDTH}vw)`
     for (let row = 0; row < ROWS; row++) {
         for (let col = 0; col < COLUMNS; col++) {
             let node = []
@@ -52,7 +55,7 @@ function buildBoard() {
                     color = "Blue"
                 }
                 else{
-                    color = "Red "
+                    color = "Red"
                 }
                 //set loadlabel to empty
                 document.getElementById("saveLoadLabel").innerText=""

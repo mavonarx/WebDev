@@ -83,14 +83,50 @@ function intervall() {
                             }
                             else state[curRow][curCol] = ''
                         }
-                    } else if (random === 2) {
                         if (state[curRow][curCol]==='r') {
                             if (Math.random()<0.5){
                                 state[curRow][curCol] = 'b'
                             }
                             else state[curRow][curCol] = ''
                         }
+                        if (state[curRow][curCol]==='') {
+                            if (Math.random()<0.5){
+                                state[curRow][curCol] = 'r'
+                            }
+                            else state[curRow][curCol] = 'b'
+                        }
+                    } else if (random === 2) {
+                        if (state[curRow][curCol]==='b') {
+                            if (Math.random()<0.5){
+                                state[curRow][curCol] = 'r'
+                            }
+                            else state[curRow][curCol] = ''
+                        }
+                        if (state[curRow][curCol]==='r') {
+                            if (Math.random()<0.5){
+                                state[curRow][curCol] = 'b'
+                            }
+                            else state[curRow][curCol] = ''
+                        }
+                        if (state[curRow][curCol]==='') {
+                            if (Math.random()<0.5){
+                                state[curRow][curCol] = 'r'
+                            }
+                            else state[curRow][curCol] = 'b'
+                        }
                     } else {
+                        if (state[curRow][curCol]==='b') {
+                            if (Math.random()<0.5){
+                                state[curRow][curCol] = 'r'
+                            }
+                            else state[curRow][curCol] = ''
+                        }
+                        if (state[curRow][curCol]==='r') {
+                            if (Math.random()<0.5){
+                                state[curRow][curCol] = 'b'
+                            }
+                            else state[curRow][curCol] = ''
+                        }
                         if (state[curRow][curCol]==='') {
                             if (Math.random()<0.5){
                                 state[curRow][curCol] = 'r'

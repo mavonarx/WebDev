@@ -53,9 +53,10 @@ var apiKeys = ['wbeweb', 'c4game']
 
 //  unsere tolle in-memory Datenbank :)
 var data = {1234567890: {
-    state:board = Array(6).fill('').map(() => Array(7).fill('')),
-    state:blue=true,
-    state:winner = undefined}
+      board: Array(6).fill('').map(() => Array(7).fill('')),
+      blue: true,
+      winner: null
+  }
 }
 
 //  GET-Request bearbeiten
@@ -63,6 +64,7 @@ var data = {1234567890: {
 app.get('/api/data/:id', function(req, res, next){
   var id = req.params.id
   var result = data[id]
+
 
   if (result) res.send(result)
   else next()

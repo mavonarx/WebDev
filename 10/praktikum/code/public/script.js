@@ -43,7 +43,8 @@ function buildBoard() {
 
                 currField.appendChild(elt("div",{class:className}))
                 state.board[lowerSpot][currentCol]=className.at(0)
-                checkWin()
+                let symbol = state.blue===true ? 'b':'r'
+                checkWin(symbol,state.board)
                 if(state.winner!==null){
                     displayWinner()
                     return;
@@ -78,15 +79,13 @@ function lowestColumnEmptySpot(col){
     }
     return ROWS
 }
-
-function checkWin(){
+function checkWin(symbol,board){
 
     //check horizontal
     let count = 0
-    let symbol = state.blue===true ? 'b':'r'
     for (let row = 0; row <ROWS; row++){
         for (let col = 0; col<COLUMNS; col++){
-            if (state.board[row][col]===symbol){
+            if (board[row][col]===symbol){
                 count++
             }
             else {
@@ -104,7 +103,7 @@ function checkWin(){
     count = 0
     for (let col = 0; col <COLUMNS; col++){
         for (let row = 0; row<ROWS; row++){
-            if (state.board[row][col]===symbol){
+            if (board[row][col]===symbol){
                 count++
             }
             else {
@@ -133,7 +132,7 @@ function checkWin(){
         let row = point[0]
         let col = point[1]
         while (row<ROWS && col<COLUMNS){
-            if (state.board[row][col]===symbol){
+            if (board[row][col]===symbol){
                 count++
             }
             else {
@@ -164,7 +163,7 @@ function checkWin(){
         let row = point[0]
         let col = point[1]
         while (row<ROWS && col>=0){
-            if (state.board[row][col]===symbol){
+            if (board[row][col]===symbol){
                 count++
             }
             else {
@@ -265,6 +264,7 @@ function restartGame(){
     }
     document.getElementById("displayLabel").innerText="Blue's Turn"
     document.getElementById("displayLabel").style.color="blue"
+
     state.winner=null
 
 }
@@ -275,11 +275,16 @@ function loadGame(){
     fetch(url + "api/data/" + datakey + "?api-key=c4game")
         .then(response => response.json())
         .then(data => {
+            console.log(data)
             state = data;
             showBoard()
             document.getElementById("saveLoadLabel").innerText="Game loaded"
-
-
+            if (data.winner===null){
+                document.getElementById("newGame").style.animation="none"
+            }
+            else {
+                displayWinner()
+            }
         })
 }
 
@@ -292,5 +297,6 @@ function saveGame(){
     })
     document.getElementById("saveLoadLabel").innerText="Game saved"
 }
+
 
 buildBoard()

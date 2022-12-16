@@ -94,5 +94,6 @@ button:active{
 
 label{
     display: inline-block;
-    width: 18vw;
+    width: 8vw;
+    border: 1px solid black;
 }

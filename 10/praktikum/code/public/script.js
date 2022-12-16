@@ -180,6 +180,10 @@ function checkWin(symbol,board){
     }
 }
 
+const Field = ({type})=> {
+    elt("div", {class:"field"},[].concat(elt("div",{class:`piece ${type}`})));
+}
+
 
 function elt (type,attrs,...children){
     let node = document.createElement(type)
@@ -233,6 +237,34 @@ function showBoard() {
         }
     }
 }
+
+
+function renderSjdon(element, appRoot){
+    while (appRoot.firstChild){
+        appRoot.removeChild(appRoot.firstChild)
+    }
+    appRoot.appendChild(render(element))
+}
+
+function render(element){
+    let node = document.createElement(element[0])
+    for (let i =1; i<element.length; i++){
+        if (Array.isArray(element[i])){
+            node.appendChild(render(element[i]))
+        }
+        else if (typeof element[i]== 'string'){
+            node.innerHTML = element[i]
+        }
+        else {
+            for (let a in element[i]){
+                node.setAttribute(a,element[i][a])
+            }
+        }
+    }
+    return node
+}
+
+
 function displayWinner(){
     let winner
     if (state.winner==='b'){
@@ -296,6 +328,15 @@ function saveGame(){
         headers: { 'Content-type': 'application/json' }, body: JSON.stringify(state)
     })
     document.getElementById("saveLoadLabel").innerText="Game saved"
+}
+
+function loadLocal(){
+   state =  JSON.parse(localStorage.getItem("state"))
+    showBoard()
+}
+
+function storeLocal(){
+    localStorage.setItem("state",JSON.stringify(state))
 }
 
 

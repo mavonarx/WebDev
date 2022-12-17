@@ -232,8 +232,10 @@ function restartGame(){
 }
 
 function loadLocal(){
-    state =  JSON.parse(localStorage.getItem("state"))
-    showBoard()
+    if (localStorage.getItem(state)){
+        state =  JSON.parse(localStorage.getItem("state"))
+        showBoard()
+    }
 }
 
 function storeLocal(){

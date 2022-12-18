@@ -234,7 +234,7 @@ function restartGame(){
 }
 
 function loadLocal(){
-    if (localStorage.getItem(state)){
+    if (localStorage.getItem("state")){
         state =  JSON.parse(localStorage.getItem("state"))
         showBoard()
     }

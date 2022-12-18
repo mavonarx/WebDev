@@ -37,7 +37,6 @@ div {
 }
 
 .board .field .piece {
-
     /*width: 8vw;
     height: 8vw;*
 
@@ -45,7 +44,7 @@ div {
     width: 80%;
     height: 80%;
     border-radius: 50%;
-    margin: 1vw;
+    margin: 10%;
 }
 .board .field .blue {
     background-color: blue;

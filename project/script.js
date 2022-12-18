@@ -187,6 +187,9 @@ function showBoard () {
     if (state.winner){
         document.getElementById("restartGame").style.animation="blink 1000ms infinite"
     }
+    else{
+        document.getElementById("restartGame").style.animation="none"
+    }
     return app
 }
 
@@ -228,7 +231,6 @@ function restartGame(){
     state.winner = null
     state.winner=null
     showBoard()
-    document.getElementById("restartGame").style.animation="none"
 }
 
 function loadLocal(){
